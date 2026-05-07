@@ -180,9 +180,15 @@
       const meta = [];
       if (b.duration) meta.push(`${b.duration} min`);
       if (b.status && b.status !== 'planned') meta.push(b.status);
-      if (b.alert != null) {
-        const lead = Math.max(0, b.alert | 0);
-        meta.push(lead === 0 ? 'alert · at start' : `alert · ${lead}m`);
+      if (b.alert_target) {
+        // Surface both lead time + target so the user can scan a day
+        // and see exactly which events will ping where.
+        const lead = Math.max(0, (b.alert | 0));
+        const when = (lead === 0) ? 'at start' : `${lead}m`;
+        const where = (b.alert_target === 'both')
+          ? 'phone+desktop'
+          : b.alert_target;
+        meta.push(`alert · ${when} · ${where}`);
       }
       if (meta.length) {
         const m = document.createElement('div');
@@ -472,11 +478,13 @@
 
   function checkAlerts() {
     const today = todayISO();
-    if (currentDate !== today) {
-      // Only the live "today" view fires alerts. Browsing other days
-      // for planning shouldn't ping you.
-    }
-    const blocks = blocksForDate(today).filter(b => b.start && b.alert != null);
+    // Only blocks whose alert_target opted-in mobile fire here.
+    // Desktop-only or no-alert blocks are skipped entirely so the
+    // user can route some events to phone, others to laptop.
+    const ANDROID_TARGETS = new Set(['android', 'both']);
+    const blocks = blocksForDate(today).filter(b =>
+      b.start && b.alert != null && ANDROID_TARGETS.has(b.alert_target)
+    );
     if (!blocks.length) return;
     const now = new Date();
     const nowMin = now.getHours() * 60 + now.getMinutes();
