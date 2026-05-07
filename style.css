@@ -278,3 +278,44 @@ body {
   letter-spacing: 0.04em;
   flex: 0 0 auto;
 }
+
+/* --- Alert banner (one-time permission prompt) ------------------ *
+ * Sits flush above the footer; offers to enable notifications.
+ * Self-removes once the user picks Enable or Not now.             */
+.alert-banner {
+  position: fixed;
+  bottom: calc(2.6rem + env(safe-area-inset-bottom));
+  left:   0.6rem;
+  right:  0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.75rem;
+  background: var(--bg-elev);
+  border: 1px solid var(--border-2);
+  border-radius: 6px;
+  font-size: 0.80rem;
+  color: var(--text-dim);
+  z-index: 6;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+}
+.alert-banner .ab-msg { flex: 1; }
+.alert-banner button {
+  background: var(--bg-elev-2);
+  color: var(--text);
+  border: 1px solid var(--border-2);
+  border-radius: 4px;
+  padding: 0.3rem 0.65rem;
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+.alert-banner button.ab-yes {
+  border-color: rgba(122, 132, 147, 0.55);
+  color: var(--highlight);
+}
+.alert-banner button:active,
+.alert-banner button:hover {
+  background: var(--bg-elev-3);
+}

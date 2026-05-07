@@ -1,5 +1,5 @@
 {
-  "exported_at": "2026-05-07T13:31:02",
+  "exported_at": "2026-05-07T16:00:20",
   "exported_through": "2026-05-21",
   "window_days": 14,
   "blocks_by_date": {
@@ -13,7 +13,8 @@
         "description": "Morning entry; sun/air, contrast, protein breakfast.",
         "objective": "Morning entry; sun/air, contrast, protein breakfast.",
         "buffer_before": 0,
-        "buffer_after": 0
+        "buffer_after": 0,
+        "alert": null
       },
       {
         "name": "Z2 Cardio + Pool",
@@ -24,7 +25,8 @@
         "description": "Cardio + pool; vitality.",
         "objective": "Cardio + pool; vitality.",
         "buffer_before": 0,
-        "buffer_after": 0
+        "buffer_after": 0,
+        "alert": null
       },
       {
         "name": "Cappuccino + Gratitude Triad",
@@ -35,7 +37,8 @@
         "description": "Gratitude triad + 3 intentions.",
         "objective": "Gratitude triad + 3 intentions.",
         "buffer_before": 0,
-        "buffer_after": 0
+        "buffer_after": 0,
+        "alert": null
       },
       {
         "name": "Mastery Block",
@@ -46,7 +49,8 @@
         "description": "60 min Becoming Engine + 30 min salsa cognitive prep. Hard rules: no trading, no errands, no games, no phone.",
         "objective": "60 min Becoming Engine + 30 min salsa cognitive prep. Hard rules: no trading, no errands, no games, no phone.",
         "buffer_before": 0,
-        "buffer_after": 0
+        "buffer_after": 0,
+        "alert": null
       },
       {
         "name": "Pre-Lunch Admin Block",
@@ -57,7 +61,8 @@
         "description": "Hard-stopped. Trading explicitly removed.",
         "objective": "Hard-stopped. Trading explicitly removed.",
         "buffer_before": 0,
-        "buffer_after": 0
+        "buffer_after": 0,
+        "alert": null
       },
       {
         "name": "Lunch + Supplements",
@@ -68,7 +73,8 @@
         "description": "Lunch.",
         "objective": "Lunch.",
         "buffer_before": 0,
-        "buffer_after": 0
+        "buffer_after": 0,
+        "alert": null
       },
       {
         "name": "NSDR",
@@ -79,7 +85,8 @@
         "description": "20 min silence.",
         "objective": "20 min silence.",
         "buffer_before": 0,
-        "buffer_after": 0
+        "buffer_after": 0,
+        "alert": null
       },
       {
         "name": "Afternoon Block",
@@ -90,7 +97,8 @@
         "description": "Flexible. Drift-vulnerable — engine watch.",
         "objective": "Flexible. Drift-vulnerable — engine watch.",
         "buffer_before": 0,
-        "buffer_after": 0
+        "buffer_after": 0,
+        "alert": null
       },
       {
         "name": "Contrast Shower + Music",
@@ -101,7 +109,8 @@
         "description": "Reset.",
         "objective": "Reset.",
         "buffer_before": 0,
-        "buffer_after": 0
+        "buffer_after": 0,
+        "alert": null
       },
       {
         "name": "Pre-Dinner / Dinner",
@@ -112,7 +121,8 @@
         "description": "Dinner.",
         "objective": "Dinner.",
         "buffer_before": 0,
-        "buffer_after": 0
+        "buffer_after": 0,
+        "alert": null
       },
       {
         "name": "Thursday Salsa Class",
@@ -123,7 +133,8 @@
         "description": "Foundation phase: 1x/week.",
         "objective": "Foundation phase: 1x/week.",
         "buffer_before": 0,
-        "buffer_after": 0
+        "buffer_after": 0,
+        "alert": null
       },
       {
         "name": "Evening Block",
@@ -134,7 +145,8 @@
         "description": "Embodied/social.",
         "objective": "Embodied/social.",
         "buffer_before": 0,
-        "buffer_after": 0
+        "buffer_after": 0,
+        "alert": null
       },
       {
         "name": "End-of-Day Light Reflection",
@@ -145,7 +157,8 @@
         "description": "10-15 min light reflection.",
         "objective": "10-15 min light reflection.",
         "buffer_before": 0,
-        "buffer_after": 0
+        "buffer_after": 0,
+        "alert": null
       },
       {
         "name": "Wind-Down",
@@ -156,7 +169,8 @@
         "description": "Wind-down.",
         "objective": "Wind-down.",
         "buffer_before": 0,
-        "buffer_after": 0
+        "buffer_after": 0,
+        "alert": null
       },
       {
         "name": "Bed",
@@ -167,7 +181,8 @@
         "description": "8 hours sleep.",
         "objective": "8 hours sleep.",
         "buffer_before": 0,
-        "buffer_after": 0
+        "buffer_after": 0,
+        "alert": null
       }
     ]
   },
@@ -180,7 +195,8 @@
         "color": "#473c33",
         "objective": "Morning entry; sun/air, contrast, protein breakfast.",
         "buffer_before": 0,
-        "buffer_after": 0
+        "buffer_after": 0,
+        "alert": null
       },
       {
         "name": "Z2 Cardio + Pool",
@@ -189,7 +205,8 @@
         "color": "#3c443e",
         "objective": "Cardio + pool; vitality.",
         "buffer_before": 0,
-        "buffer_after": 0
+        "buffer_after": 0,
+        "alert": null
       },
       {
         "name": "Cappuccino + Gratitude Triad",
@@ -198,7 +215,8 @@
         "color": "#473c33",
         "objective": "Gratitude triad + 3 intentions.",
         "buffer_before": 0,
-        "buffer_after": 0
+        "buffer_after": 0,
+        "alert": null
       },
       {
         "name": "Mastery Block",
@@ -207,7 +225,8 @@
         "color": "#3a4050",
         "objective": "60 min Becoming Engine + 30 min salsa cognitive prep. Hard rules: no trading, no errands, no games, no phone.",
         "buffer_before": 0,
-        "buffer_after": 0
+        "buffer_after": 0,
+        "alert": null
       },
       {
         "name": "Pre-Lunch Admin Block",
@@ -216,7 +235,8 @@
         "color": "#3a3d44",
         "objective": "Hard-stopped. Trading explicitly removed.",
         "buffer_before": 0,
-        "buffer_after": 0
+        "buffer_after": 0,
+        "alert": null
       },
       {
         "name": "Lunch + Supplements",
@@ -225,7 +245,8 @@
         "color": "#443735",
         "objective": "Lunch.",
         "buffer_before": 0,
-        "buffer_after": 0
+        "buffer_after": 0,
+        "alert": null
       },
       {
         "name": "NSDR",
@@ -234,7 +255,8 @@
         "color": "#403944",
         "objective": "20 min silence.",
         "buffer_before": 0,
-        "buffer_after": 0
+        "buffer_after": 0,
+        "alert": null
       },
       {
         "name": "Afternoon Block",
@@ -243,7 +265,8 @@
         "color": "#3a3d44",
         "objective": "Flexible. Drift-vulnerable — engine watch.",
         "buffer_before": 0,
-        "buffer_after": 0
+        "buffer_after": 0,
+        "alert": null
       },
       {
         "name": "Contrast Shower + Music",
@@ -252,7 +275,8 @@
         "color": "#403944",
         "objective": "Reset.",
         "buffer_before": 0,
-        "buffer_after": 0
+        "buffer_after": 0,
+        "alert": null
       },
       {
         "name": "Pre-Dinner / Dinner",
@@ -261,7 +285,8 @@
         "color": "#443735",
         "objective": "Dinner.",
         "buffer_before": 0,
-        "buffer_after": 0
+        "buffer_after": 0,
+        "alert": null
       },
       {
         "name": "Evening Block",
@@ -270,7 +295,8 @@
         "color": "#443735",
         "objective": "Embodied/social.",
         "buffer_before": 0,
-        "buffer_after": 0
+        "buffer_after": 0,
+        "alert": null
       },
       {
         "name": "End-of-Day Light Reflection",
@@ -279,7 +305,8 @@
         "color": "#3a4347",
         "objective": "10-15 min light reflection.",
         "buffer_before": 0,
-        "buffer_after": 0
+        "buffer_after": 0,
+        "alert": null
       },
       {
         "name": "Wind-Down",
@@ -288,7 +315,8 @@
         "color": "#403944",
         "objective": "Wind-down.",
         "buffer_before": 0,
-        "buffer_after": 0
+        "buffer_after": 0,
+        "alert": null
       },
       {
         "name": "Bed",
@@ -297,7 +325,8 @@
         "color": "#403944",
         "objective": "8 hours sleep.",
         "buffer_before": 0,
-        "buffer_after": 0
+        "buffer_after": 0,
+        "alert": null
       }
     ],
     "by_dow": {
@@ -309,7 +338,8 @@
           "color": "#3a3d44",
           "objective": "Default: second male friendship -> embeddedness -> recovery.",
           "buffer_before": 0,
-          "buffer_after": 0
+          "buffer_after": 0,
+          "alert": null
         }
       ],
       "Mon": [
@@ -320,7 +350,8 @@
           "color": "#3a3d44",
           "objective": "Default: male friendship -> embeddedness -> recovery.",
           "buffer_before": 0,
-          "buffer_after": 0
+          "buffer_after": 0,
+          "alert": null
         }
       ],
       "Sat": [
@@ -331,7 +362,8 @@
           "color": "#3a4050",
           "objective": "Dating evening + salsa weekend session + available time. Live music absorbed. Golf every-other-week.",
           "buffer_before": 0,
-          "buffer_after": 0
+          "buffer_after": 0,
+          "alert": null
         }
       ],
       "Sun": [
@@ -342,7 +374,8 @@
           "color": "#3a4347",
           "objective": "60-90 min. 4-week rotating cycle: Wk1 Thread 1, Wk2 Thread 2, Wk3 Gap 6, Wk4 Gap 3 + architecture review.",
           "buffer_before": 0,
-          "buffer_after": 0
+          "buffer_after": 0,
+          "alert": null
         },
         {
           "name": "Sunday LDS Ward Attendance",
@@ -351,7 +384,8 @@
           "color": "#3a4347",
           "objective": "Ward attendance + secondary engagement.",
           "buffer_before": 0,
-          "buffer_after": 0
+          "buffer_after": 0,
+          "alert": null
         }
       ],
       "Thu": [
@@ -362,7 +396,8 @@
           "color": "#3a4050",
           "objective": "Foundation phase: 1x/week.",
           "buffer_before": 0,
-          "buffer_after": 0
+          "buffer_after": 0,
+          "alert": null
         }
       ],
       "Tue": [
@@ -373,7 +408,8 @@
           "color": "#3e4137",
           "objective": "Weight-protected.",
           "buffer_before": 0,
-          "buffer_after": 0
+          "buffer_after": 0,
+          "alert": null
         }
       ],
       "Wed": [
@@ -384,7 +420,8 @@
           "color": "#423832",
           "objective": "LDS midweek touch.",
           "buffer_before": 0,
-          "buffer_after": 0
+          "buffer_after": 0,
+          "alert": null
         }
       ]
     }

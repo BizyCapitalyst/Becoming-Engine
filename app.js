@@ -180,6 +180,10 @@
       const meta = [];
       if (b.duration) meta.push(`${b.duration} min`);
       if (b.status && b.status !== 'planned') meta.push(b.status);
+      if (b.alert != null) {
+        const lead = Math.max(0, b.alert | 0);
+        meta.push(lead === 0 ? 'alert · at start' : `alert · ${lead}m`);
+      }
       if (meta.length) {
         const m = document.createElement('div');
         m.className = 'block-meta';
@@ -391,11 +395,152 @@
     if (e.key === 't' || e.key === 'T') $today.click();
   });
 
+  // --- Notifications ----------------------------------------------
+  // Per-block alerts. While the PWA is open in any tab / standalone
+  // window, fire a Notification + soft chime when (now >= block.start
+  // - alert_minutes). True closed-app push needs a server endpoint
+  // and is out of scope for the local-first model.
+  //
+  // Fired-block bookkeeping: localStorage key `_be_fired_alerts` holds
+  // a JSON list of `${date}|${start}|${name}` strings so reopening
+  // the app doesn't re-fire alerts. Pruned to today on every load so
+  // the list never grows unbounded.
+
+  const ALERT_FIRED_KEY = '_be_fired_alerts';
+  const ALERT_BANNER_KEY = '_be_alert_banner_seen';
+
+  function loadFiredAlerts() {
+    try { return new Set(JSON.parse(localStorage.getItem(ALERT_FIRED_KEY) || '[]')); }
+    catch { return new Set(); }
+  }
+  function saveFiredAlerts(set) {
+    try { localStorage.setItem(ALERT_FIRED_KEY, JSON.stringify([...set])); }
+    catch {}
+  }
+  function pruneFiredAlerts() {
+    const today = todayISO();
+    const fired = loadFiredAlerts();
+    const kept  = new Set([...fired].filter(k => k.startsWith(today + '|')));
+    if (kept.size !== fired.size) saveFiredAlerts(kept);
+  }
+
+  function alertKey(iso, b) {
+    return `${iso}|${b.start}|${b.name}`;
+  }
+
+  // Soft chime — Web Audio sine pulse at ~660 Hz for 220 ms with a
+  // gentle envelope so it reads as a chime, not a beep.
+  let _audioCtx = null;
+  function chime() {
+    try {
+      _audioCtx = _audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+      const ctx = _audioCtx;
+      if (ctx.state === 'suspended') ctx.resume();
+      const t0 = ctx.currentTime;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(660, t0);
+      osc.frequency.exponentialRampToValueAtTime(880, t0 + 0.18);
+      gain.gain.setValueAtTime(0.0001, t0);
+      gain.gain.exponentialRampToValueAtTime(0.18, t0 + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.30);
+      osc.connect(gain).connect(ctx.destination);
+      osc.start(t0);
+      osc.stop(t0 + 0.32);
+    } catch {}
+  }
+
+  function fireBlockAlert(iso, b) {
+    const lead = (b.alert == null) ? null : Math.max(0, b.alert | 0);
+    const heading = (lead === 0)
+      ? `Now: ${b.name}`
+      : `In ${lead} min: ${b.name}`;
+    const body = b.objective || b.description || `${b.start} · ${b.duration || ''} min`;
+    if (typeof Notification !== 'undefined' && Notification.permission === 'granted') {
+      try {
+        new Notification(heading, {
+          body,
+          icon: 'icon.svg',
+          tag:  alertKey(iso, b),     // collapses dupes if any
+          silent: false,
+        });
+      } catch {}
+    }
+    chime();
+  }
+
+  function checkAlerts() {
+    const today = todayISO();
+    if (currentDate !== today) {
+      // Only the live "today" view fires alerts. Browsing other days
+      // for planning shouldn't ping you.
+    }
+    const blocks = blocksForDate(today).filter(b => b.start && b.alert != null);
+    if (!blocks.length) return;
+    const now = new Date();
+    const nowMin = now.getHours() * 60 + now.getMinutes();
+    const fired = loadFiredAlerts();
+    let mutated = false;
+    for (const b of blocks) {
+      const m = /^(\d{1,2}):(\d{2})/.exec(b.start);
+      if (!m) continue;
+      const startMin = parseInt(m[1]) * 60 + parseInt(m[2]);
+      const fireAtMin = startMin - Math.max(0, b.alert | 0);
+      // Window: fire if we're past fireAt but not more than 30 min
+      // late (so a desktop tab that sat closed all morning doesn't
+      // dump every alert at once when it wakes).
+      if (nowMin >= fireAtMin && nowMin - fireAtMin <= 30) {
+        const key = alertKey(today, b);
+        if (!fired.has(key)) {
+          fireBlockAlert(today, b);
+          fired.add(key);
+          mutated = true;
+        }
+      }
+    }
+    if (mutated) saveFiredAlerts(fired);
+  }
+
+  // --- Permission banner ------------------------------------------
+  // First-launch only: a small dismissible row offering to enable
+  // notifications. The browser's prompt requires a user gesture, so
+  // this can't be auto-requested on page load.
+  function maybeShowAlertBanner() {
+    if (typeof Notification === 'undefined') return;
+    if (Notification.permission !== 'default') return;
+    if (localStorage.getItem(ALERT_BANNER_KEY) === '1') return;
+    const bar = document.createElement('div');
+    bar.className = 'alert-banner';
+    bar.innerHTML =
+      '<span class="ab-msg">Enable alerts for upcoming blocks?</span>' +
+      '<button class="ab-yes">Enable</button>' +
+      '<button class="ab-no">Not now</button>';
+    document.body.appendChild(bar);
+    bar.querySelector('.ab-yes').addEventListener('click', async () => {
+      try { await Notification.requestPermission(); } catch {}
+      bar.remove();
+      localStorage.setItem(ALERT_BANNER_KEY, '1');
+    });
+    bar.querySelector('.ab-no').addEventListener('click', () => {
+      bar.remove();
+      localStorage.setItem(ALERT_BANNER_KEY, '1');
+    });
+  }
+
   // --- Boot -------------------------------------------------------
   loadSchedule();
+  pruneFiredAlerts();
+  maybeShowAlertBanner();
 
   // Refresh the header every minute so the relative-day indicator
   // (today / tomorrow / +N days …) self-corrects when the system
   // clock crosses midnight while the app is open.
   setInterval(() => renderHeader(currentDate), 60_000);
+
+  // Check alerts every 30 s. We check more often than the alert
+  // resolution (which is per-minute) so we catch the window even if
+  // the tab was throttled or the clock jumped.
+  checkAlerts();
+  setInterval(checkAlerts, 30_000);
 })();

@@ -11,7 +11,7 @@
  * — old caches get cleaned up on the next activate.
  */
 
-const CACHE_VERSION = 'be-mobile-v4';
+const CACHE_VERSION = 'be-mobile-v5';
 const SHELL_FILES = [
   './',
   './index.html',
