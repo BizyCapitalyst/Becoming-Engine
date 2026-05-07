@@ -171,7 +171,14 @@
       if (bb > 0) c.classList.add('block-card-no-top');
       if (ba > 0) c.classList.add('block-card-no-bot');
       if (b.color) {
-        c.style.boxShadow = `inset 3px 0 0 0 ${b.color}`;
+        // Paint the whole card in the block's hue so the mobile
+        // mirrors the desktop calendar event. The buffer gradients
+        // above/below already terminate at this same colour, so the
+        // block + its halos read as one continuous shape. The block
+        // palette is low-saturation dark slate, so light text on top
+        // stays legible without dimming the colour.
+        c.style.background  = b.color;
+        c.style.borderColor = b.color;
       }
 
       const name = document.createElement('div');
