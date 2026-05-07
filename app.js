@@ -45,6 +45,15 @@
       schedule = { blocks_by_date: {}, architecture: { daily: [], by_dow: {} }, exported_at: null };
     }
     render();
+    // Anchor the scroll so the now-marker shows with one block of
+    // context above it. We fire at multiple delays because layout
+    // can be still computing when the first rAF runs (especially on
+    // cold launches with web fonts loading) — each call is a cheap
+    // idempotent scrollTo, so re-firing is harmless.
+    requestAnimationFrame(() =>
+      requestAnimationFrame(scrollToNowContext)
+    );
+    [80, 250, 600].forEach(t => setTimeout(scrollToNowContext, t));
   }
 
   // --- Rendering --------------------------------------------------
@@ -295,6 +304,35 @@
     renderHeader(currentDate);
   }
 
+  // Scroll today's card so the now-marker sits with exactly one
+  // block of context above it. Opens you onto "what just finished"
+  // and "what's now / next" without making you scroll to find them.
+  // Only meaningful on today's card; no-op on past / future days.
+  function scrollToNowContext() {
+    const card = $stage.querySelector('.day-card');
+    if (!card) return;
+    if (card.dataset.date !== todayISO()) return;
+    const marker = card.querySelector('.now-marker');
+    if (!marker) return;
+    // Walk back from the marker to find the nearest block-row that
+    // came before "now". One block of context is plenty.
+    let prev = marker.previousElementSibling;
+    while (prev && !prev.classList.contains('block-row')) {
+      prev = prev.previousElementSibling;
+    }
+    const target = prev || marker;
+    // Compute target's offset inside the scroll container, then
+    // back off a few px so it doesn't kiss the top edge.
+    const cardRect   = card.getBoundingClientRect();
+    const targetRect = target.getBoundingClientRect();
+    const targetOffset =
+      targetRect.top - cardRect.top + card.scrollTop;
+    card.scrollTo({
+      top: Math.max(0, targetOffset - 8),
+      behavior: 'auto',
+    });
+  }
+
   // --- Navigation -------------------------------------------------
   function go(deltaDays) {
     if (!deltaDays) return;
@@ -327,12 +365,24 @@
   $next.addEventListener('click', () => go(+1));
   $today.addEventListener('click', () => {
     const t = todayISO();
-    if (t === currentDate) return;
+    if (t === currentDate) {
+      // Already on today's card — re-snap the scroll position to
+      // the now-context so the button doubles as "scroll back to
+      // now" when the user has scrolled away from it.
+      scrollToNowContext();
+      return;
+    }
     const delta = (new Date(t) - new Date(currentDate)) / (1000 * 60 * 60 * 24);
     go(delta > 0 ? +1 : -1);
     // Snap to today exactly (multi-day jump renders just one transition;
-    // re-render the final state).
-    setTimeout(() => { currentDate = t; render(); }, 250);
+    // re-render the final state) and re-anchor the scroll.
+    setTimeout(() => {
+      currentDate = t;
+      render();
+      requestAnimationFrame(() =>
+        requestAnimationFrame(scrollToNowContext)
+      );
+    }, 250);
   });
 
   // --- Swipe ------------------------------------------------------
