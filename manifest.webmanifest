@@ -11,13 +11,13 @@
   "background_color": "#10141a",
   "icons": [
     {
-      "src": "icon.svg",
+      "src": "icon.svg?v=4",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
     },
     {
-      "src": "icon-maskable.svg",
+      "src": "icon-maskable.svg?v=4",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "maskable"
