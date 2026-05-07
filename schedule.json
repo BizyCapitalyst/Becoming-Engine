@@ -1,0 +1,392 @@
+{
+  "exported_at": "2026-05-07T13:31:02",
+  "exported_through": "2026-05-21",
+  "window_days": 14,
+  "blocks_by_date": {
+    "2026-05-07": [
+      {
+        "name": "Wake",
+        "start": "07:00",
+        "duration": 60,
+        "status": "planned",
+        "color": "#473c33",
+        "description": "Morning entry; sun/air, contrast, protein breakfast.",
+        "objective": "Morning entry; sun/air, contrast, protein breakfast.",
+        "buffer_before": 0,
+        "buffer_after": 0
+      },
+      {
+        "name": "Z2 Cardio + Pool",
+        "start": "07:30",
+        "duration": 60,
+        "status": "planned",
+        "color": "#3c443e",
+        "description": "Cardio + pool; vitality.",
+        "objective": "Cardio + pool; vitality.",
+        "buffer_before": 0,
+        "buffer_after": 0
+      },
+      {
+        "name": "Cappuccino + Gratitude Triad",
+        "start": "08:45",
+        "duration": 15,
+        "status": "planned",
+        "color": "#473c33",
+        "description": "Gratitude triad + 3 intentions.",
+        "objective": "Gratitude triad + 3 intentions.",
+        "buffer_before": 0,
+        "buffer_after": 0
+      },
+      {
+        "name": "Mastery Block",
+        "start": "09:00",
+        "duration": 90,
+        "status": "planned",
+        "color": "#3a4050",
+        "description": "60 min Becoming Engine + 30 min salsa cognitive prep. Hard rules: no trading, no errands, no games, no phone.",
+        "objective": "60 min Becoming Engine + 30 min salsa cognitive prep. Hard rules: no trading, no errands, no games, no phone.",
+        "buffer_before": 0,
+        "buffer_after": 0
+      },
+      {
+        "name": "Pre-Lunch Admin Block",
+        "start": "10:30",
+        "duration": 45,
+        "status": "planned",
+        "color": "#3a3d44",
+        "description": "Hard-stopped. Trading explicitly removed.",
+        "objective": "Hard-stopped. Trading explicitly removed.",
+        "buffer_before": 0,
+        "buffer_after": 0
+      },
+      {
+        "name": "Lunch + Supplements",
+        "start": "12:30",
+        "duration": 45,
+        "status": "planned",
+        "color": "#443735",
+        "description": "Lunch.",
+        "objective": "Lunch.",
+        "buffer_before": 0,
+        "buffer_after": 0
+      },
+      {
+        "name": "NSDR",
+        "start": "13:30",
+        "duration": 20,
+        "status": "planned",
+        "color": "#403944",
+        "description": "20 min silence.",
+        "objective": "20 min silence.",
+        "buffer_before": 0,
+        "buffer_after": 0
+      },
+      {
+        "name": "Afternoon Block",
+        "start": "14:00",
+        "duration": 90,
+        "status": "planned",
+        "color": "#3a3d44",
+        "description": "Flexible. Drift-vulnerable — engine watch.",
+        "objective": "Flexible. Drift-vulnerable — engine watch.",
+        "buffer_before": 0,
+        "buffer_after": 0
+      },
+      {
+        "name": "Contrast Shower + Music",
+        "start": "16:30",
+        "duration": 30,
+        "status": "planned",
+        "color": "#403944",
+        "description": "Reset.",
+        "objective": "Reset.",
+        "buffer_before": 0,
+        "buffer_after": 0
+      },
+      {
+        "name": "Pre-Dinner / Dinner",
+        "start": "18:30",
+        "duration": 60,
+        "status": "planned",
+        "color": "#443735",
+        "description": "Dinner.",
+        "objective": "Dinner.",
+        "buffer_before": 0,
+        "buffer_after": 0
+      },
+      {
+        "name": "Thursday Salsa Class",
+        "start": "19:00",
+        "duration": 60,
+        "status": "planned",
+        "color": "#3a4050",
+        "description": "Foundation phase: 1x/week.",
+        "objective": "Foundation phase: 1x/week.",
+        "buffer_before": 0,
+        "buffer_after": 0
+      },
+      {
+        "name": "Evening Block",
+        "start": "19:30",
+        "duration": 120,
+        "status": "planned",
+        "color": "#443735",
+        "description": "Embodied/social.",
+        "objective": "Embodied/social.",
+        "buffer_before": 0,
+        "buffer_after": 0
+      },
+      {
+        "name": "End-of-Day Light Reflection",
+        "start": "21:30",
+        "duration": 15,
+        "status": "planned",
+        "color": "#3a4347",
+        "description": "10-15 min light reflection.",
+        "objective": "10-15 min light reflection.",
+        "buffer_before": 0,
+        "buffer_after": 0
+      },
+      {
+        "name": "Wind-Down",
+        "start": "22:00",
+        "duration": 60,
+        "status": "planned",
+        "color": "#403944",
+        "description": "Wind-down.",
+        "objective": "Wind-down.",
+        "buffer_before": 0,
+        "buffer_after": 0
+      },
+      {
+        "name": "Bed",
+        "start": "23:00",
+        "duration": 60,
+        "status": "planned",
+        "color": "#403944",
+        "description": "8 hours sleep.",
+        "objective": "8 hours sleep.",
+        "buffer_before": 0,
+        "buffer_after": 0
+      }
+    ]
+  },
+  "architecture": {
+    "daily": [
+      {
+        "name": "Wake",
+        "start": "07:00",
+        "duration": 0,
+        "color": "#473c33",
+        "objective": "Morning entry; sun/air, contrast, protein breakfast.",
+        "buffer_before": 0,
+        "buffer_after": 0
+      },
+      {
+        "name": "Z2 Cardio + Pool",
+        "start": "07:30",
+        "duration": 60,
+        "color": "#3c443e",
+        "objective": "Cardio + pool; vitality.",
+        "buffer_before": 0,
+        "buffer_after": 0
+      },
+      {
+        "name": "Cappuccino + Gratitude Triad",
+        "start": "08:45",
+        "duration": 15,
+        "color": "#473c33",
+        "objective": "Gratitude triad + 3 intentions.",
+        "buffer_before": 0,
+        "buffer_after": 0
+      },
+      {
+        "name": "Mastery Block",
+        "start": "09:00",
+        "duration": 90,
+        "color": "#3a4050",
+        "objective": "60 min Becoming Engine + 30 min salsa cognitive prep. Hard rules: no trading, no errands, no games, no phone.",
+        "buffer_before": 0,
+        "buffer_after": 0
+      },
+      {
+        "name": "Pre-Lunch Admin Block",
+        "start": "10:30",
+        "duration": 45,
+        "color": "#3a3d44",
+        "objective": "Hard-stopped. Trading explicitly removed.",
+        "buffer_before": 0,
+        "buffer_after": 0
+      },
+      {
+        "name": "Lunch + Supplements",
+        "start": "12:30",
+        "duration": 45,
+        "color": "#443735",
+        "objective": "Lunch.",
+        "buffer_before": 0,
+        "buffer_after": 0
+      },
+      {
+        "name": "NSDR",
+        "start": "13:30",
+        "duration": 20,
+        "color": "#403944",
+        "objective": "20 min silence.",
+        "buffer_before": 0,
+        "buffer_after": 0
+      },
+      {
+        "name": "Afternoon Block",
+        "start": "14:00",
+        "duration": 90,
+        "color": "#3a3d44",
+        "objective": "Flexible. Drift-vulnerable — engine watch.",
+        "buffer_before": 0,
+        "buffer_after": 0
+      },
+      {
+        "name": "Contrast Shower + Music",
+        "start": "16:30",
+        "duration": 30,
+        "color": "#403944",
+        "objective": "Reset.",
+        "buffer_before": 0,
+        "buffer_after": 0
+      },
+      {
+        "name": "Pre-Dinner / Dinner",
+        "start": "18:30",
+        "duration": 60,
+        "color": "#443735",
+        "objective": "Dinner.",
+        "buffer_before": 0,
+        "buffer_after": 0
+      },
+      {
+        "name": "Evening Block",
+        "start": "19:30",
+        "duration": 120,
+        "color": "#443735",
+        "objective": "Embodied/social.",
+        "buffer_before": 0,
+        "buffer_after": 0
+      },
+      {
+        "name": "End-of-Day Light Reflection",
+        "start": "21:30",
+        "duration": 15,
+        "color": "#3a4347",
+        "objective": "10-15 min light reflection.",
+        "buffer_before": 0,
+        "buffer_after": 0
+      },
+      {
+        "name": "Wind-Down",
+        "start": "22:00",
+        "duration": 60,
+        "color": "#403944",
+        "objective": "Wind-down.",
+        "buffer_before": 0,
+        "buffer_after": 0
+      },
+      {
+        "name": "Bed",
+        "start": "23:00",
+        "duration": 0,
+        "color": "#403944",
+        "objective": "8 hours sleep.",
+        "buffer_before": 0,
+        "buffer_after": 0
+      }
+    ],
+    "by_dow": {
+      "Fri": [
+        {
+          "name": "Friday Open",
+          "start": null,
+          "duration": null,
+          "color": "#3a3d44",
+          "objective": "Default: second male friendship -> embeddedness -> recovery.",
+          "buffer_before": 0,
+          "buffer_after": 0
+        }
+      ],
+      "Mon": [
+        {
+          "name": "Monday Open",
+          "start": null,
+          "duration": null,
+          "color": "#3a3d44",
+          "objective": "Default: male friendship -> embeddedness -> recovery.",
+          "buffer_before": 0,
+          "buffer_after": 0
+        }
+      ],
+      "Sat": [
+        {
+          "name": "Saturday Social/Salsa/Date",
+          "start": null,
+          "duration": null,
+          "color": "#3a4050",
+          "objective": "Dating evening + salsa weekend session + available time. Live music absorbed. Golf every-other-week.",
+          "buffer_before": 0,
+          "buffer_after": 0
+        }
+      ],
+      "Sun": [
+        {
+          "name": "Sunday AM Deep Interior Work",
+          "start": null,
+          "duration": null,
+          "color": "#3a4347",
+          "objective": "60-90 min. 4-week rotating cycle: Wk1 Thread 1, Wk2 Thread 2, Wk3 Gap 6, Wk4 Gap 3 + architecture review.",
+          "buffer_before": 0,
+          "buffer_after": 0
+        },
+        {
+          "name": "Sunday LDS Ward Attendance",
+          "start": null,
+          "duration": null,
+          "color": "#3a4347",
+          "objective": "Ward attendance + secondary engagement.",
+          "buffer_before": 0,
+          "buffer_after": 0
+        }
+      ],
+      "Thu": [
+        {
+          "name": "Thursday Salsa Class",
+          "start": null,
+          "duration": null,
+          "color": "#3a4050",
+          "objective": "Foundation phase: 1x/week.",
+          "buffer_before": 0,
+          "buffer_after": 0
+        }
+      ],
+      "Tue": [
+        {
+          "name": "Tuesday Male Friendship Slot",
+          "start": null,
+          "duration": null,
+          "color": "#3e4137",
+          "objective": "Weight-protected.",
+          "buffer_before": 0,
+          "buffer_after": 0
+        }
+      ],
+      "Wed": [
+        {
+          "name": "Wednesday LDS Weekday Touch",
+          "start": null,
+          "duration": null,
+          "color": "#423832",
+          "objective": "LDS midweek touch.",
+          "buffer_before": 0,
+          "buffer_after": 0
+        }
+      ]
+    }
+  }
+}

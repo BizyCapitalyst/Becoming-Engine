@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#10141a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Becoming">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="icon.svg">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="style.css?v=3">
+  <title>Becoming Engine — Schedule</title>
+</head>
+<body>
+
+  <header class="topbar">
+    <button class="navbtn" id="prev-day" aria-label="Previous day">‹</button>
+    <div class="date">
+      <div class="dow"   id="dow">—</div>
+      <div class="iso"   id="iso">—</div>
+      <div class="today" id="today-tag">today</div>
+    </div>
+    <button class="navbtn" id="next-day" aria-label="Next day">›</button>
+  </header>
+
+  <main class="stage" id="stage">
+    <!-- Three day-cards are rendered here. The middle one is the current day;
+         the left/right are pre-rendered for swipe smoothness. -->
+  </main>
+
+  <footer class="footer">
+    <span id="exported-at">Schedule loading…</span>
+    <button id="today-btn" class="todaybtn">today</button>
+  </footer>
+
+  <!-- Versioned script src so updates to app.js bypass any stale
+       service-worker / HTTP cache. Bump ?v= when shipping new JS. -->
+  <script src="app.js?v=3" defer></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js').catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+# Local working files that don't belong in the deployed PWA repo.
+
+# Icon-candidate previews — kept locally for design review, but the
+# only icons the PWA actually loads are icon.svg + icon-maskable.svg.
+icons/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp

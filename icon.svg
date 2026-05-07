@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#10141a"/>
+  <!-- Stylised calendar columns + horizontal "now" line -->
+  <g stroke="#7a8493" stroke-width="6" fill="none">
+    <line x1="96"  y1="120" x2="416" y2="120"/>
+    <line x1="96"  y1="200" x2="416" y2="200"/>
+    <line x1="96"  y1="280" x2="416" y2="280"/>
+    <line x1="96"  y1="360" x2="416" y2="360"/>
+    <line x1="160" y1="100" x2="160" y2="400"/>
+    <line x1="256" y1="100" x2="256" y2="400"/>
+    <line x1="352" y1="100" x2="352" y2="400"/>
+  </g>
+  <!-- Filled "today" block -->
+  <rect x="261" y="205" width="90" height="70" rx="6" fill="#3a4050"/>
+  <!-- Now-indicator line + arrow on the left axis -->
+  <line x1="96" y1="248" x2="416" y2="248" stroke="#7a8493" stroke-width="3"/>
+  <polygon points="86,242 96,248 86,254" fill="#7a8493"/>
+</svg>
